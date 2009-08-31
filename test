@@ -14,7 +14,13 @@ def bold(s):
 def red(s):
     return RED + s + RED_RESET
 
-tests = testparser.parse_file("motor_tests.xml")
+if len(sys.argv) < 2:
+    print "Usage: %s BOARD_NAME"
+    sys.exit(1)
+
+board_name = sys.argv[1]
+
+tests = testparser.parse_file("%s_tests.xml" % board_name)
 
 # Get the board number
 board_num = None
@@ -77,7 +83,7 @@ while test_n < len(tests):
  
     print "-" * 80
 
-results.save_results( "motor", board_num, test_results )
+results.save_results( board_name, board_num, test_results )
 
 sys.exit(0)
 
