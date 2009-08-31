@@ -1,0 +1,84 @@
+#!/bin/env python
+import testparser, results
+from getch import getch
+import sys, os
+
+BOLD = "\033[1m"
+BOLD_RESET = "\033[0;0m"
+RED = "\033[1;31m"
+RED_RESET = "\033[0;0m"
+
+def bold(s):
+    return BOLD + s + BOLD_RESET
+
+def red(s):
+    return RED + s + RED_RESET
+
+tests = testparser.parse_file("motor_tests.xml")
+
+# Get the board number
+board_num = None
+while True:
+    try:
+        ns = raw_input("Enter board number: " + RED)
+    except KeyboardInterrupt:
+        print RED_RESET
+        sys.exit(1)
+    sys.stdout.write(RED_RESET)
+    sys.stdout.flush()
+
+    try:
+        board_num = int(ns)
+        break
+    except:
+        print red("Not a number... try again.")
+        pass
+
+test_n = 0
+test_results = [None] * len(tests)
+while test_n < len(tests):
+    test = tests[test_n]
+
+    num_str = "[%s/%i]." % ( bold(str(test_n+1)), len(tests) )
+    num_str_no_fmt = "[%i/%i]" % ( test_n+1, len(tests) )
+
+    print num_str, test
+    print " " * (len(num_str_no_fmt) + 1), "Pass? [y/n/q/b/?]",
+    c = getch()
+
+    if c in "yY":
+        print red("yes")
+        test_results[test_n] = True
+        test_n += 1
+
+    elif c in "nN":
+        print red("no")
+        test_results[test_n] = False
+        break
+
+    elif c in "b":
+        print red("back")
+        test_n -= 1
+        if test_n < 0:
+            test_n = 0
+
+    elif c in "qQ\003":
+        print red("quit")
+        sys.exit(1)
+
+    else:
+        print red("help")
+        print """ y -- Yes, it passed.
+ n -- No, it failed.
+ q -- Quit.
+ b -- Back one test.
+ ? -- Show this help.
+"""
+ 
+    print "-" * 80
+
+results.save_results( "motor", board_num, test_results )
+
+sys.exit(0)
+
+    

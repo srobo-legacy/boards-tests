@@ -1,0 +1,12 @@
+<board name="jointio">
+  <test>Use a multi-meter to beep the connection between ground and all of the ground cage-clamps.  Are they all connected?</test>
+  <test>Apply power to the board.  Check it doesn't draw too much current.</test>
+  <test>Connect to the MSP430.  Can it be programmed?</test>
+  <test>Can you read the correct board identity over I2C?</test>
+  <test>Does the I2C LED flash during I2C activity?</test>
+  <test>Measure the voltage on each of the 3.3V cage clamps.  Are they all connected to 3.3V?</test>
+  <test>Connect ground to all inputs.  Do they all read zero?</test>
+  <test>Keeping all other inputs connected to ground, connect 12V followed by 1.5V to each input in turn.  Make sure the supply used for these references has a sensible current limit set (e.g. 50mA).  Read the inputs over I2C for each configuration.  For 12V, the reading should be 1023.  For 1.5V, the reading should be approximately 465.</test>
+  <test>Do each of the input LEDs work.</test>
+  <test>Go through each of the outputs in turn.  Set that output high, and all others low.  For each configuration, check the voltages on the output cage-clamps are correct.  Check the output LEDs are also correct.</test>
+</board>

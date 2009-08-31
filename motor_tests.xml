@@ -1,0 +1,12 @@
+<board name="motor">
+  <test>Power the board's 3.3V rail.  Check it doesn't draw too much current.</test>
+  <test>Power the board's 12V rail (whilst the 3.3V rail is still connected).  Check it doesn't draw too much current.</test>
+  <test>Connect to the MSP430.  Program it.</test>
+  <test>Read the correct board identity over I2C.</test>
+  <test>Check the I2C LED flashes during I2C transactions.</test>
+  <test>Switch through all the motor output states, and check that the channel state LEDs are functioning.</test>
+  <test>Connect ground to all feedback inputs.  Check they all read '0'.</test>
+  <test>Connect 12V to each feedback input in turn whilst all others are connected to 0V.  Check it reads '1'.</test>
+  <test>Do the following for each channel.  Plug motor in.  Check that it can be driven forwards, backwards, and stopped.  Check it can be driven at half speed forwards and backwards.  Check the PWM state LED changes brightness with different power outputs.</test>
+  <test>Connect the maximum load to each channel.  Run for several hours (probably 24, but this is still under debate).</test>
+</board>
