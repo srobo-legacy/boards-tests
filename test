@@ -20,7 +20,7 @@ if len(sys.argv) < 2:
 
 board_name = sys.argv[1]
 
-tests = testparser.parse_file("%s_tests.xml" % board_name)
+tests = testparser.parse_file("tests/%s_tests.xml" % board_name)
 
 # Get the board number
 board_num = None

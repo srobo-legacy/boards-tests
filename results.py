@@ -17,7 +17,7 @@ def indent(elem, level=0):
             elem.tail = i
 
 def save_results( board_name, board_number, results ):
-    fname = "%s_results.xml" % board_name
+    fname = "results/%s_results.xml" % board_name
     if not os.path.exists(fname):
         tree = ET.ElementTree( ET.fromstring("<results_file></results_file>") )
     else:
