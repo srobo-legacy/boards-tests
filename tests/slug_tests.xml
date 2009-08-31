@@ -1,0 +1,36 @@
+<board name="slug">
+
+<test>Power up the slug (without usb/network), check that it doesn't current-limit</test>
+<test>Power up again, this time with 2usb sticks (root and user keys)</test>
+<test>SSH into the slug</test>
+<test>Kill existing xbd and pyenv (python) instances.</test>
+<test>From within the ssh session, run the python interpreter.  Run this:
+
+import sr, time
+for x in range(0,4):
+  setled(x,1)
+  time.sleep(1)
+  setled(x,0)
+  time.sleep(1)
+
+Check that the lights each flash in turn.
+</test>
+
+<test>Reset the xbee module from within python (using the xbee_reset() 
+function in the power.py module)
+</test>
+
+<test>Run the following:
+
+export LD_LIBRARY_PATH=/usr/local/lib
+xbd -s /dev/ttyS0
+
+xbd *must* determine the address of the connected xbee.  Output will be along the lines of this:
+** (xbd:660): DEBUG: Setting baud to 9600
+** (xbd:660): DEBUG: In AT mode.
+** (xbd:660): DEBUG: Setting baud to 9600
+** (xbd:660): DEBUG: xbee in API mode
+** (xbd:660): DEBUG: Local address: 0013A2004008AC9A
+</test>
+        
+</board>
