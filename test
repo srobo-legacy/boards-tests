@@ -15,7 +15,7 @@ def red(s):
     return RED + s + RED_RESET
 
 if len(sys.argv) < 2:
-    print "Usage: %s BOARD_NAME"
+    print "Usage: %s BOARD_NAME" % os.path.basename( sys.argv[0] )
     sys.exit(1)
 
 board_name = sys.argv[1]
