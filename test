@@ -6,13 +6,21 @@ import sys, os
 BOLD = "\033[1m"
 BOLD_RESET = "\033[0;0m"
 RED = "\033[1;31m"
-RED_RESET = "\033[0;0m"
+GREEN = "\033[1;32m"
+BLUE = "\033[1;34m"
+COLOUR_RESET = "\033[0;0m"
 
 def bold(s):
     return BOLD + s + BOLD_RESET
 
-def red(s):
-    return RED + s + RED_RESET
+def warn(s):
+    return RED + s + COLOUR_RESET
+
+def info(s):
+    return BLUE + s + COLOUR_RESET
+
+def success(s):
+    return GREEN + s + COLOUR_RESET
 
 if len(sys.argv) < 2:
     print "Usage: %s BOARD_NAME" % os.path.basename( sys.argv[0] )
@@ -26,18 +34,18 @@ tests = testparser.parse_file("tests/%s_tests.xml" % board_name)
 board_num = None
 while True:
     try:
-        ns = raw_input("Enter board number: " + RED)
+        ns = raw_input("Enter board number: " + BLUE)
     except KeyboardInterrupt:
-        print RED_RESET
+        print COLOUR_RESET
         sys.exit(1)
-    sys.stdout.write(RED_RESET)
+    sys.stdout.write(COLOUR_RESET)
     sys.stdout.flush()
 
     try:
         board_num = int(ns)
         break
     except:
-        print red("Not a number... try again.")
+        print warn("Not a number... try again.")
         pass
 
 test_n = 0
@@ -53,27 +61,27 @@ while test_n < len(tests):
     c = getch()
 
     if c in "yY":
-        print red("yes")
+        print success("yes")
         test_results[test_n] = True
         test_n += 1
 
     elif c in "nN":
-        print red("no")
+        print warn("no")
         test_results[test_n] = False
         break
 
     elif c in "b":
-        print red("back")
+        print info("back")
         test_n -= 1
         if test_n < 0:
             test_n = 0
 
     elif c in "qQ\003":
-        print red("quit")
+        print warn("quit")
         sys.exit(1)
 
     else:
-        print red("help")
+        print info("help")
         print """ y -- Yes, it passed.
  n -- No, it failed.
  q -- Quit.
