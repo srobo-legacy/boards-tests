@@ -42,10 +42,13 @@ def save_results( board_name, board_number, results ):
 
     # Add test results:
     for x in range(0, len(results)):
-        result = results[x]
+        result = results[x].passed
 
         ent = ET.Element("test")
         ent.set( "number", str(x) )
+
+        if results[x].name != "":
+            ent.set( "name", results[x].name )
 
         if result == None:
             continue

@@ -54,7 +54,6 @@ while True:
         pass
 
 test_n = 0
-test_results = [None] * len(tests)
 while test_n < len(tests):
     test = tests[test_n]
 
@@ -67,12 +66,12 @@ while test_n < len(tests):
 
     if c in "yY":
         success("yes")
-        test_results[test_n] = True
+        test.passed = True
         test_n += 1
 
     elif c in "nN":
         warn("no")
-        test_results[test_n] = False
+        test.passed = False
         break
 
     elif c in "b":
@@ -103,7 +102,7 @@ while test_n < len(tests):
  
     print "-" * 80
 
-results.save_results( board_name, board_num, test_results )
+results.save_results( board_name, board_num, tests )
 
 sys.exit(0)
 
