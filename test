@@ -87,7 +87,7 @@ while test_n < len(tests):
     elif c in "w":
         info("wiki")
         if test.name != "":
-            openURL(SROBOWIKI % ("tests " + board_name + " " + test.name)) 
+            openURL(SROBOWIKI % ("Tests/" + board_name + "/" + test.name))
 	else:
             warn("no name exists for this test")
 
