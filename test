@@ -33,7 +33,11 @@ if len(sys.argv) < 2:
 
 board_name = sys.argv[1]
 
-tests = testparser.parse_file("tests/%s_tests.xml" % board_name)
+try:
+    tests = testparser.parse_file("tests/%s_tests.xml" % board_name)
+except IOError:
+	warn("Could not find test file for board '%s'" % board_name)
+	sys.exit(1)
 
 # Get the board number
 board_num = None
@@ -83,7 +87,7 @@ while test_n < len(tests):
     elif c in "w":
         info("wiki")
         if test.name != "":
-            openURL(SROBOWIKI % ("tests " + board_name + " " + test.name)); 
+            openURL(SROBOWIKI % ("tests " + board_name + " " + test.name)) 
 	else:
             warn("no name exists for this test")
 

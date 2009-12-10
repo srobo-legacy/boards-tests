@@ -4,7 +4,7 @@ class Test:
     """A class to represent an individual test"""
     text = ""
     name = ""
-    passed = False;
+    passed = False
     
     def __init__(self, xmlnode):
         self.text = xmlnode.text

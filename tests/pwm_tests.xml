@@ -1,20 +1,19 @@
 <board name="power">
-  <test>Check that all the 5V output pins are connected to the 5V supply.</test>
-  <test>Check that all the ground output pins are connected to ground.</test>
-  <test>Power the board's 3.3V rail.  Check it doesn't draw too much current.</test>
-  <test>Power the board's 5V rail (at the same time as 3.3V).  Check it doesn't draw too much current.</test>
-
-  <test>Connect to the MSP430.  Program it.</test>
-  <test>Read the correct board identity over I2C.</test>
-  <test>Check the I2C LED flashes during I2C transactions.</test>
-  <test>Check that the LCD can display text.  Write a test string to it.</test>
-  <test>Press the screen-change button.  Check it works.</test>
-  <test>Short each PWM output to its associated 5V output.
+  <test name="power 5V">Check that all the 5V output pins are connected to the 5V supply.</test>
+  <test name="power gnd">Check that all the ground output pins are connected to ground.</test>
+  <test name="power current 3V3">Power the board's 3.3V rail.  Check it doesn't draw too much current.</test>
+  <test name="power current 3V3 5V">Power the board's 5V rail (at the same time as 3.3V).  Check it doesn't draw too much current.</test>
+  <test name="MSP430 program">Connect to the MSP430.  Program it.</test>
+  <test name="I2C ID">Read the correct board identity over I2C.</test>
+  <test name="I2C LED">Check the I2C LED flashes during I2C transactions.</test>
+  <test name="LCD display">Check that the LCD can display text.  Write a test string to it.</test>
+  <test name="LCD button">Press the screen-change button.  Check it works.</test>
+  <test name="PWM short 5V">Short each PWM output to its associated 5V output.
 Use a jumper.  Check that nothing explodes.</test>
-  <test>Short each PWM output to its associated ground output.
+  <test name="PWM short gnd">Short each PWM output to its associated ground output.
 Use a jumper.  Check that nothing explodes.</test>
-  <test>Connect a servo to each output in turn.
+  <test name="PWM servo">Connect a servo to each output in turn.
 Move it from one extreme to the other by changing the PWM output.
 Also move it to one position in-between.</test>
-  <test>Disconnect the 3.3V power.  Make nothing current limits.</test>
+  <test name="power current 5V">Disconnect the 3.3V power.  Make nothing current limits.</test>
 </board>

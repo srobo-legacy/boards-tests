@@ -1,10 +1,9 @@
 <board name="slug">
-
-<test>Power up the slug (without usb/network), check that it doesn't current-limit</test>
-<test>Power up again, this time with 2usb sticks (root and user keys)</test>
-<test>SSH into the slug</test>
-<test>Kill existing xbd and pyenv (python) instances.</test>
-<test>From within the ssh session, run the python interpreter.  Run this:
+<test name="power current">Power up the slug (without usb/network), check that it doesn't current-limit</test>
+<test name="power current sticks">Power up again, this time with 2usb sticks (root and user keys)</test>
+<test name="ssh">SSH into the slug</test>
+<test name="ssh python kill">Kill existing xbd and pyenv (python) instances.</test>
+<test name="ssh python run">From within the ssh session, run the python interpreter.  Run this:
 
 import sr, time
 for x in range(0,4):
@@ -15,12 +14,10 @@ for x in range(0,4):
 
 Check that the lights each flash in turn.
 </test>
-
-<test>Reset the xbee module from within python (using the xbee_reset() 
+<test name="ssh xbee reset">Reset the xbee module from within python (using the xbee_reset() 
 function in the power.py module)
 </test>
-
-<test>Run the following:
+<test name="ssh xbee address">Run the following:
 
 export LD_LIBRARY_PATH=/usr/local/lib
 xbd -s /dev/ttyS0

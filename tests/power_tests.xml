@@ -1,25 +1,25 @@
 <board name="power">
-  <test>Check that the USB power connector's ground pin is connected to ground (beep it).</test>
-  <test>Connect charge/run switch.  Switch to charge mode.  Connect 12V to the charger input.
+  <test name="usb gnd">Check that the USB power connector's ground pin is connected to ground (beep it).</test>
+  <test name="power charger LEDs">Connect charge/run switch.  Switch to charge mode.  Connect 12V to the charger input.
 No LEDs should illuminate.</test>
-  <test>Disconnect charger input.  Connect 12V to the battery input.  
+  <test name="power battery">Disconnect charger input.  Connect 12V to the battery input.  
 Connect the power switch.  Close it.  Make sure it doesn't current limit.</test>
-  <test>Check that the following lights are on (look at power board outline diagram):
+  <test name="power battery LEDs">Check that the following lights are on (look at power board outline diagram):
  - Run
  - Master power
  - 3.3V logic power</test>
-  <test>Short the 3.3V rail.  Check nothing catches fire.  The switch-mode should current-limit.</test>
-  <test>Connect to the MSP430.  Program it (and run code).</test>
-  <test>Read the correct board identity over I2C.</test>
-  <test>Check that 5V reaches the USB power connector.</test>
-  <test>Check that the slug rail is 5V.</test>
-  <test>Short the slug rail.  Check nothing catches fire.  The switch-mode should current-limit.</test>
-  <test>Command the board to turn the servo rail on.  Check it comes on OK and is 5V at the servo power connector.</test>
-  <test>Short the servo rail.  Check nothing catches fire.  The switch-mode should current-limit.</test>
-  <test>Command the board to turn the motor rail on.  Check it comes on.</test>
-  <test>Switch entire assembly off.  Connect xbee and slug.  Power it back up.</test>
-  <test>Boot slug.  Shell into it.</test>
-  <test>Check each user LED on the slug using the following python code:
+  <test name="power current 3V3">Short the 3.3V rail.  Check nothing catches fire.  The switch-mode should current-limit.</test>
+  <test name="MSP430 program">Connect to the MSP430.  Program it (and run code).</test>
+  <test name="I2C ID">Read the correct board identity over I2C.</test>
+  <test name="power USB">Check that 5V reaches the USB power connector.</test>
+  <test name="power slug">Check that the slug rail is 5V.</test>
+  <test name="power current slug">Short the slug rail.  Check nothing catches fire.  The switch-mode should current-limit.</test>
+  <test name="power servo">Command the board to turn the servo rail on.  Check it comes on OK and is 5V at the servo power connector.</test>
+  <test name="power current servo">Short the servo rail.  Check nothing catches fire.  The switch-mode should current-limit.</test>
+  <test name="power motor">Command the board to turn the motor rail on.  Check it comes on.</test>
+  <test name="connect xbee_slug">Switch entire assembly off.  Connect xbee and slug.  Power it back up.</test>
+  <test name="slug boot">Boot slug.  Shell into it.</test>
+  <test name="slug LEDs">Check each user LED on the slug using the following python code:
 from sr import *
 import time
 for x in range(0,4):
@@ -29,7 +29,7 @@ for x in range(0,4):
   time.sleep(1)
 
 Check that each light flashes in turn.</test>
-  <test>Run xbd in the following way:
+  <test name="slug xbee address">Run xbd in the following way:
 
 export LD_LIBRARY_PATH=/usr/local/lib
 xbd -s /dev/ttyS0
@@ -42,12 +42,12 @@ xbd *must* determine the address of the connected xbee.  Output will be along th
 ** (xbd:660): DEBUG: Local address: 0013A2004008AC9A
 </test>
 
-  <test>Check the dip switches from python by running the following:
+<test name="slug dipsw">Check the dip switches from python by running the following:
 
 from sr import *
 getswitches(0)
 
 (You will need to change the argument to read each switch in turn.)
 </test>
-  <test>Talk and power another (known-working) board through all the RJ11 connectors.</test>
+<test name="I2C connectors">Talk to and power another (known-working) board through all the RJ11 connectors.</test>
 </board>
