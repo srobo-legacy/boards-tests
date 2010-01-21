@@ -2,9 +2,9 @@
 import testparser, results
 from getch import getch
 import sys, os
-import webbrowser
+#import webbrowser
 
-SROBOWIKI = "https://www.studentrobotics.org/trac/wiki/%s"
+#SROBOWIKI = "https://www.studentrobotics.org/trac/wiki/%s"
 BOLD = "\033[1m"
 BOLD_RESET = "\033[0;0m"
 RED = "\033[1;31m"
@@ -64,8 +64,8 @@ while test_n < len(tests):
     num_str = "[%s/%i]." % ( bold(str(test_n+1)), len(tests) )
     num_str_no_fmt = "[%i/%i]" % ( test_n+1, len(tests) )
 
-    print num_str, test.name, "-", test.text
-    print " " * (len(num_str_no_fmt) + 1), "Pass? [y/n/q/b/w/?]",
+    print num_str, test.text
+    print " " * (len(num_str_no_fmt) + 1), "Pass? [y/n/q/b/?]",
     c = getch()
 
     if c in "yY":
@@ -84,12 +84,12 @@ while test_n < len(tests):
         if test_n < 0:
             test_n = 0
 
-    elif c in "w":
-        info("wiki")
-        if test.name != "":
-            openURL(SROBOWIKI % ("Tests/" + board_name + "/" + test.name))
-	else:
-            warn("no name exists for this test")
+    #elif c in "w":
+    #    info("wiki")
+    #    if test.name != "":
+    #        openURL(SROBOWIKI % ("Tests/" + board_name + "/" + test.name))
+    #    else:
+    #        warn("no name exists for this test")
 
     elif c in "qQ\003":
         warn("quit")
