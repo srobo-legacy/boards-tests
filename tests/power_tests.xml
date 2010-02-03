@@ -23,9 +23,9 @@ Connect the power switch.  Close it.  Make sure it doesn't current limit.</test>
 from sr import *
 import time
 for x in range(0,4):
-  setled(x,1)
+  power.led[x] = 1
   time.sleep(1)
-  setled(x,0)
+  power.led[x] = 0
   time.sleep(1)
 
 Check that each light flashes in turn.</test>
@@ -45,9 +45,11 @@ xbd *must* determine the address of the connected xbee.  Output will be along th
 <test name="slug dipsw">Check the dip switches from python by running the following:
 
 from sr import *
-getswitches(0)
+while 1:
+  for x in range(0,4):
+    power.led[x] = power.switch[x]
 
-(You will need to change the argument to read each switch in turn.)
+Check that the LEDs represent the current state of the switches.
 </test>
 <test name="I2C connectors">Talk to and power another (known-working) board through all the RJ11 connectors.</test>
 </board>
