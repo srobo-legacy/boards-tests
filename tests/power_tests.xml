@@ -1,17 +1,34 @@
 <board name="power">
-  <test name="power battery">Disconnect charger input.  Connect 12V to the battery input.  
-Connect the power switch.  Close it.  Make sure it doesn't current limit.</test>
-  <test name="power battery LEDs">Check that the following lights are on (look at power board outline diagram):
- - Run
- - Master power
- - 3.3V logic power</test>
-  <test name="power current 3V3">Short the 3.3V rail.  Check nothing catches fire.  The switch-mode should current-limit.</test>
-  <test name="MSP430 program">Connect to the MSP430.  Program it (and run code).</test>
-  <test name="power USB">Check that 5V reaches the USB power connector.</test>
-  <test name="power slug">Check that the slug rail is 5V.</test>
-  <test name="power current slug">Short the slug rail.  Check nothing catches fire.  The switch-mode should current-limit.</test>
-  <test name="power motor">Command the board to turn the motor rail on.  Check it comes on.</test>
-  <test name="connect xbee_slug">Switch entire assembly off.  Connect xbee and slug.  Power it back up.</test>
+  <test name="power battery">1) Insert 15A (Blue) fuse into lower slot.
+2) Insert 1A (Black) fuse into slot on the rear of the board.
+3) Plug in power switch.
+4) Connect 12V to the battery input.
+5) Close power switch.
+Result: Should draw around ???mA.</test>
+  <test name="power battery LEDs">Check that the '3V3' LED is on.</test>
+  <test name="MSP430 program">1) Open power switch.
+2) Conncet UIF.
+3) Close power switch.
+4) Program MSP.
+5) Run code.
+Result: Code runs.</test>
+  <test name="test-mode enter">1) Open power switch.
+2) Hold down the two buttons to the lower right of the screen.
+3) Close power switch.
+Result: Tune plays through piezo. CHARGE, debug(SRIC activity) and motor rail LEDs flash.</test>
+  <test name="test-mode buttons">Press each button in turn, an LED should toggle. Press/turn rotary encoders, more LEDs should toggle.</test>
+  <test name="test-mode motor rail">Measure the voltage on the motor rail. Should be toggling between 0 and 12V.</test>
+  <test name="test-mode motor rail load">Load the motor rail, preferably with 60W or more. Nothing should break, load should turn on/off.</test>
+  <test name="power beagleboard">1) Open power switch.
+2) Close power switch.
+Result: 5V LED should turn on. 5V rail should be 5V.</test>
+  <test name="power usb">Measure the voltage on the USB hub power socket. Should be 5V.</test>
+  <test name="power beagleboard">1) Open power switch.
+2) Disconnect 12V from the battery input.
+3) Mount BeagleBoard.
+4) Connect 12V to the battery input.
+5) Close power switch.
+Result: Should draw around ??mA. After 3 seconds backlight should illuminate.</test>
   <test name="slug boot">Boot slug.  Shell into it.</test>
   <test name="slug LEDs">Check each user LED on the slug using the following python code:
 from sr import *
