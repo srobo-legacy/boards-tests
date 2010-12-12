@@ -28,7 +28,8 @@ Result: 5V LED should turn on. 5V rail should be 5V.</test>
 3) Mount BeagleBoard.
 4) Connect 12V to the battery input.
 5) Close power switch.
-Result: Should draw around ??mA.</test>
+6) Wait about 1 minute for the BeagleBoard to boot. LED USR0 on the BealgeBoard should be flashing in a 'heartbeat' pattern and USR1 should be off.
+Result: Should draw around 165mA.</test>
   <test name="power lcd">Measure LCD 2.5V rail, should be 2.5V.</test>
   <test name="power lcd backlight">Measure LCD backlight voltage, should be anywhere between 32V and 39V.</test>
   <test name="power lcd assemble">1) Open power switch.
