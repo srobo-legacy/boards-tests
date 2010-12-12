@@ -4,8 +4,8 @@
 3) Plug in power switch.
 4) Connect 12V to the battery input.
 5) Close power switch.
-Result: Should draw around ???mA.</test>
-  <test name="power battery LEDs">Check that the '3V3' LED is on.</test>
+Result: Should draw around 30mA. (Both 3.3V rail and 5V rail will be on)</test>
+  <test name="power battery LEDs">Check that the '3V3' and '5V' LEDs are on.</test>
   <test name="MSP430 program">1) Open power switch.
 2) Conncet UIF.
 3) Close power switch.
