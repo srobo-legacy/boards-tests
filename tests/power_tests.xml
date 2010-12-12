@@ -28,7 +28,16 @@ Result: 5V LED should turn on. 5V rail should be 5V.</test>
 3) Mount BeagleBoard.
 4) Connect 12V to the battery input.
 5) Close power switch.
-Result: Should draw around ??mA. After 3 seconds backlight should illuminate.</test>
+Result: Should draw around ??mA.</test>
+  <test name="power lcd">Measure LCD 2.5V rail, should be 2.5V.</test>
+  <test name="power lcd backlight">Measure LCD backlight voltage, should be anywhere between 32V and 39V.</test>
+  <test name="power lcd assemble">1) Open power switch.
+2) Disconnect 12V from the battery input.
+3) Connect LCD.
+4) Add insulating pad behind LCD.
+5) Connect 12V to the battery input.
+6) Close power switch.
+Result: Backlight should illuminate after 3 seconds.</test>
   <test name="slug boot">Boot slug.  Shell into it.</test>
   <test name="slug LEDs">Check each user LED on the slug using the following python code:
 from sr import *
