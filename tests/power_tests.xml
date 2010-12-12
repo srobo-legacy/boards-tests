@@ -1,7 +1,4 @@
 <board name="power">
-  <test name="usb gnd">Check that the USB power connector's ground pin is connected to ground (beep it).</test>
-  <test name="power charger LEDs">Connect charge/run switch.  Switch to charge mode.  Connect 12V to the charger input.
-No LEDs should illuminate.</test>
   <test name="power battery">Disconnect charger input.  Connect 12V to the battery input.  
 Connect the power switch.  Close it.  Make sure it doesn't current limit.</test>
   <test name="power battery LEDs">Check that the following lights are on (look at power board outline diagram):
@@ -10,12 +7,9 @@ Connect the power switch.  Close it.  Make sure it doesn't current limit.</test>
  - 3.3V logic power</test>
   <test name="power current 3V3">Short the 3.3V rail.  Check nothing catches fire.  The switch-mode should current-limit.</test>
   <test name="MSP430 program">Connect to the MSP430.  Program it (and run code).</test>
-  <test name="I2C ID">Read the correct board identity over I2C.</test>
   <test name="power USB">Check that 5V reaches the USB power connector.</test>
   <test name="power slug">Check that the slug rail is 5V.</test>
   <test name="power current slug">Short the slug rail.  Check nothing catches fire.  The switch-mode should current-limit.</test>
-  <test name="power servo">Command the board to turn the servo rail on.  Check it comes on OK and is 5V at the servo power connector.</test>
-  <test name="power current servo">Short the servo rail.  Check nothing catches fire.  The switch-mode should current-limit.</test>
   <test name="power motor">Command the board to turn the motor rail on.  Check it comes on.</test>
   <test name="connect xbee_slug">Switch entire assembly off.  Connect xbee and slug.  Power it back up.</test>
   <test name="slug boot">Boot slug.  Shell into it.</test>
@@ -29,18 +23,6 @@ for x in range(0,4):
   time.sleep(1)
 
 Check that each light flashes in turn.</test>
-  <test name="slug xbee address">Run xbd in the following way:
-
-export LD_LIBRARY_PATH=/usr/local/lib
-xbd -s /dev/ttyS0
-
-xbd *must* determine the address of the connected xbee.  Output will be along the lines of this:
-** (xbd:660): DEBUG: Setting baud to 9600
-** (xbd:660): DEBUG: In AT mode.
-** (xbd:660): DEBUG: Setting baud to 9600
-** (xbd:660): DEBUG: xbee in API mode
-** (xbd:660): DEBUG: Local address: 0013A2004008AC9A
-</test>
 
 <test name="slug dipsw">Check the dip switches from python by running the following:
 
