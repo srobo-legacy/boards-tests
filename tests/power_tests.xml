@@ -7,7 +7,7 @@
 Result: Should draw around 30mA. (Both 3.3V rail and 5V rail will be on)</test>
   <test name="power battery LEDs">Check that the '3V3' and '5V' LEDs are on.</test>
   <test name="MSP430 program">1) Open power switch.
-2) Conncet UIF.
+2) Connect UIF.
 3) Close power switch.
 4) Program MSP.
 5) Run code.
