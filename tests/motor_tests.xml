@@ -1,6 +1,10 @@
 <board name="motor">
   <test name="power sric">Power the board over SRIC. Should draw around 40mA</test>
   <test name="power motor">Power the board through the main power connector. Should draw around 20mA</test>
+  <test name="pic program">1) Remove all power.
+2) Connect ICD2
+3) Power the board over SRIC.
+4) Program PIC (Run 'make flash' in boards/interconnect-fw.git)</test>
   <test name="msp430 program">1) Remove all power.
 2) Connect UIF.
 3) Power the board over SRIC.
