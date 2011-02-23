@@ -1,11 +1,16 @@
 <board name="power">
+  <test name="fuse led">1) Connect 12V to the battery input.
+Result: Main fuse LED should light
+  </test>
   <test name="power battery">1) Insert 15A (Blue) fuse into lower slot.
 2) Insert 1A (Black) fuse into slot on the rear of the board.
 3) Plug in power switch.
 4) Connect 12V to the battery input.
 5) Close power switch.
+6) Measure voltage on both 3.3V and 5V rails
 Result: Should draw around 30mA. (Both 3.3V rail and 5V rail will be on)</test>
   <test name="power battery LEDs">Check that the '3V3' and '5V' LEDs are on.</test>
+  <test name="power charger">Plug 14V into the charger connector, ensure that this increases the battery input voltage to 14V.</test>
   <test name="MSP430 program">1) Open power switch.
 2) Connect UIF.
 3) Close power switch.
@@ -23,12 +28,15 @@ Result: Tune plays through piezo. CHARGE, debug(SRIC activity) and motor rail LE
 2) Close power switch.
 Result: 5V LED should turn on. 5V rail should be 5V.</test>
   <test name="power usb">Measure the voltage on the USB hub power socket. Should be 5V.</test>
+  <test name="beagleboard signals">Ensure nothing higher than 1.8V is present on any of the BeagleBoard signal lines.</test>
   <test name="power beagleboard">1) Open power switch.
 2) Disconnect 12V from the battery input.
-3) Mount BeagleBoard.
-4) Connect 12V to the battery input.
-5) Close power switch.
-6) Wait about 1 minute for the BeagleBoard to boot. LED USR0 on the BealgeBoard should be flashing in a 'heartbeat' pattern and USR1 should be off.
+3) Mount BeagleBoard (remember the USB riser board).
+4) Insert SD card with a test image into the BeagleBoard.
+5) Plug serial cable into the BeagleBoard.
+6) Connect 12V to the battery input.
+7) Close power switch.
+8) Wait about 1 minute for the BeagleBoard to boot. LED USR0 on the BealgeBoard should be flashing in a 'heartbeat' pattern and USR1 should be off.
 Result: Should draw around 165mA.</test>
   <test name="power lcd">Measure LCD 2.5V rail, should be 2.5V.</test>
   <test name="power lcd backlight">Measure LCD backlight voltage, should be anywhere between 32V and 39V.</test>
@@ -39,26 +47,8 @@ Result: Should draw around 165mA.</test>
 5) Connect 12V to the battery input.
 6) Close power switch.
 Result: Backlight should illuminate after 3 seconds.</test>
-  <test name="slug boot">Boot slug.  Shell into it.</test>
-  <test name="slug LEDs">Check each user LED on the slug using the following python code:
-from sr import *
-import time
-for x in range(0,4):
-  power.led[x] = 1
-  time.sleep(1)
-  power.led[x] = 0
-  time.sleep(1)
-
-Check that each light flashes in turn.</test>
-
-<test name="slug dipsw">Check the dip switches from python by running the following:
-
-from sr import *
-while 1:
-  for x in range(0,4):
-    power.led[x] = power.switch[x]
-
-Check that the LEDs represent the current state of the switches.
-</test>
-<test name="I2C connectors">Talk to and power another (known-working) board through all the RJ11 connectors.</test>
+  <test name="beagleboard boot">Observe boot messages when the BeagleBoard boots. Check there are no errors reported. LCD should display things.</test>
+  <test name="beagleboard sric">Run sricd and ensure it can enumerate a bus.</test>
+  <test name="beagleboard sric control">Control a motor board over SRIC</test>
+  <test name="beagleboard usb">Connect a USB hub to the power board. Plug a memory stick and see if it mounts over the serial console.</test>
 </board>
