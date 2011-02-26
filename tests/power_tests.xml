@@ -36,7 +36,7 @@ Result: Tune plays through piezo. CHARGE, debug(SRIC activity) and motor rail LE
 6) Connect 12V to the battery input.
 7) Close power switch.
 8) Wait about 1 minute for the BeagleBoard to boot. LED USR0 on the BealgeBoard should be flashing in a 'heartbeat' pattern and USR1 should be off.
-Result: Should draw around 165mA.</test>
+Result: Should draw around 240mA.</test>
   <test name="power lcd">Measure LCD 2.5V rail, should be 2.5V.</test>
   <test name="power lcd backlight">Measure LCD backlight voltage, should be anywhere between 32V and 39V.</test>
   <test name="power lcd assemble">1) Open power switch.
