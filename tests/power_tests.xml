@@ -8,8 +8,8 @@ Result: Main fuse LED should light
 4) Connect 12V to the battery input.
 5) Close power switch.
 6) Measure voltage on both 3.3V and 5V rails
+7) Check 3.3V and 5V LEDs are on
 Result: Should draw around 30mA. (Both 3.3V rail and 5V rail will be on)</test>
-  <test name="power battery LEDs">Check that the '3V3' and '5V' LEDs are on.</test>
   <test name="power charger">Plug 14V into the charger connector, ensure that this increases the battery input voltage to 14V.</test>
   <test name="MSP430 program">1) Open power switch.
 2) Connect UIF.
