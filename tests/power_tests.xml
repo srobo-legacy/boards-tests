@@ -24,9 +24,6 @@ Result: Tune plays through piezo. CHARGE, debug(SRIC activity) and motor rail LE
   <test name="test-mode buttons">Press each button in turn, an LED should toggle. Press/turn rotary encoders, more LEDs should toggle.</test>
   <test name="test-mode motor rail">Measure the voltage on the motor rail. Should be toggling between 0 and 12V.</test>
   <test name="test-mode motor rail load">Load the motor rail, preferably with 60W or more. Nothing should break, load should turn on/off.</test>
-  <test name="power beagleboard">1) Open power switch.
-2) Close power switch.
-Result: 5V LED should turn on. 5V rail should be 5V.</test>
   <test name="power usb">Measure the voltage on the USB hub power socket. Should be 5V.</test>
   <test name="beagleboard signals">Ensure nothing higher than 1.8V is present on any of the BeagleBoard signal lines.</test>
   <test name="power beagleboard">1) Open power switch.
