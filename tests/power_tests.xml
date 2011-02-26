@@ -45,8 +45,7 @@ Result: Should draw around 240mA.</test>
 4) Add insulating pad behind LCD.
 5) Connect 12V to the battery input.
 6) Close power switch.
-Result: Backlight should illuminate after 3 seconds.</test>
-  <test name="beagleboard boot">Observe boot messages when the BeagleBoard boots. Check there are no errors reported. LCD should display things.</test>
+Result: Backlight should illuminate after 3 seconds. LCD should display things.</test>
   <test name="beagleboard sric">Run sricd and ensure it can enumerate a bus.</test>
   <test name="beagleboard sric control">Control a motor board over SRIC</test>
   <test name="beagleboard usb">Connect a USB hub to the power board. Plug a memory stick and see if it mounts over the serial console.</test>
