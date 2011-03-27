@@ -1,0 +1,22 @@
+<board name="power">
+  <test name="power sric">Power the board over SRIC. Should draw around 30mA</test>
+  <test name="power servo">Power the board through the servo power connector. Should draw 0mA</test>
+  <test name="pic program">
+1) Remove all power
+2) Connect ICD2
+3) Power the board over SRIC
+4) Program PIC (rum 'make flash' in boards/interconnect-fw.git)</test>
+  <test name="msp430 program">
+1) Remove all power
+2) Connect UIF
+3) Power the board over SRIC
+4) Program the MSP</test>
+  <test name="sric smps">
+1) Connect to PC-SRIC board
+2) Run sricd on PC
+3) Run 'servo.py' in sricd.git/pysric/examples
+4) Measure the voltage on each of the 5V pins
+Result: They should all measure 5V</test>
+  <test name="sric servo single">Connect a single servo to each output in turn. It should turn</test>
+  <test name="sric servo all">Connect a servo to every output (if you have enough servos). They should all turn</test>
+</board>
