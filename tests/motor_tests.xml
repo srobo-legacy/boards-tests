@@ -20,8 +20,7 @@ Result: Code runs.</test>
   d) Forward half speed
   e) Backward half speed
 Result: The LEDs next to the motor connector should change in brightness depending on the direction/speed set.</test>
-  <test name="motor load small">Repeat the above test with a small load connected. The load should indicate the speed/direction set. The board should not current limit (the red LED in the middle of the board should not illuminate).</test>
-  <test name="motor load large">Repeat the above test with a large (5A) load connected. The board should not current limit.</test>
-  <test name="motor load short">Repeat the above test with the output terminals shorted. The red LED in the middle of the board should illuminate indicating that the board is current limiting. No smoke should be observed.</test>
+  <test name="motor load small">Repeat the above test with a small load connected. The load should indicate the speed/direction set.</test>
+  <test name="motor load large">Repeat the above test with a large (5A) load connected.</test>
   <test name="motor endurance">Leave the board driving the large load for 1 hour. The board should still be functioning after the hour.</test>
 </board>
