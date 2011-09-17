@@ -1,0 +1,58 @@
+#!/bin/bash
+
+if [[ $UID != 0 ]]
+then
+	echo "Must be run as root!"
+	exec sudo $0
+fi
+
+usbPath='/media/KINGSTON'
+dummyFile='/tmp/IamaUSBtestingFile'
+
+function md5
+{
+	md5sum $1 | cut -d\  -f 1
+}
+
+function cleanStick
+{
+	# Clear the usb stick, silently
+	rm -rf $usbPath/* $usbPath/.* 2> /dev/null
+}
+
+if [ ! -f $dummyFile ]
+then
+	# generate a random 20MB file
+	dd if=/dev/urandom of=$dummyFile bs=4kB count=5120
+fi
+
+refHash=$(md5 $dummyFile)
+
+cleanStick
+
+# Copy our reference file 20 times
+for i in `seq 1 20`
+do
+	echo -n "Test copy $i:	"
+	testFile="$usbPath/$i"
+	cp $dummyFile $testFile
+	echo 3 > /proc/sys/vm/drop_caches
+	if [[ $(md5 $testFile) == $refHash ]]
+	then
+		echo Pass
+	else
+		echo "FAIL!"
+		exit
+	fi
+done
+
+cleanStick
+
+# Add the .srobo file for the IDE's benefit
+touch $usbPath/.srobo
+
+# Eject it
+if [ umount $usbPath ]
+then
+	echo "Stick ready to be removed"
+fi
