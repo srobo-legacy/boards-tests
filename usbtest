@@ -20,6 +20,12 @@ function cleanStick
 	rm -rf $usbPath/* $usbPath/.* 2> /dev/null
 }
 
+function dropCaches
+{
+	# This is the bit that needs sudo
+	echo 3 > /proc/sys/vm/drop_caches
+}
+
 if [ ! -f $dummyFile ]
 then
 	# generate a random 20MB file
@@ -36,7 +42,7 @@ do
 	echo -n "Test copy $i:	"
 	testFile="$usbPath/$i"
 	cp $dummyFile $testFile
-	echo 3 > /proc/sys/vm/drop_caches
+	dropCaches
 	if [[ $(md5 $testFile) == $refHash ]]
 	then
 		echo Pass
@@ -50,9 +56,6 @@ cleanStick
 
 # Add the .srobo file for the IDE's benefit
 touch $usbPath/.srobo
-
+dropCaches
 # Eject it
-if [ umount $usbPath ]
-then
-	echo "Stick ready to be removed"
-fi
+umount $usbPath && echo "Stick ready to be removed"
