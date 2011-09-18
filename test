@@ -1,4 +1,4 @@
-#!/bin/env python
+#!/usr/bin/env python
 import testparser, results
 from getch import getch
 import sys, os
