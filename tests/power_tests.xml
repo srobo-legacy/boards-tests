@@ -48,5 +48,5 @@ Result: Should draw around 240mA.</test>
 Result: Backlight should illuminate after 3 seconds. LCD should display things.</test>
   <test name="beagleboard sric">Run sricd and ensure it can enumerate a bus.</test>
   <test name="beagleboard sric control">Control a motor board over SRIC</test>
-  <test name="beagleboard usb">Connect a USB hub to the power board. Plug a memory stick and see if it mounts over the serial console.</test>
+  <test name="beagleboard usb">Plug a memory stick and see if it mounts over the serial console.</test>
 </board>
