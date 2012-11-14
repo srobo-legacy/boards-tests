@@ -27,7 +27,7 @@ Result: Tune plays through piezo. CHARGE, debug(SRIC activity) and motor rail LE
   <test name="test-mode motor rail">Measure the voltage on the motor rail. Should be toggling between 0 and 12V.</test>
   <test name="test-mode motor rail load">Load the motor rail, preferably with 60W or more. Nothing should break, load should turn on/off.</test>
   <test name="power usb">Measure the voltage on the USB hub power socket. Should be 5V.</test>
-  <test name="beagleboard signals">Ensure nothing higher than 1.8V is present on any of the BeagleBoard signal lines.</test>
+  <test name="beagleboard signals">Ensure nothing higher than 1.8V is present on any of the BeagleBoard signal lines (except the 5V and 3.3V connections, which are the top-left and second from bottom-right).</test>
   <test name="power beagleboard">1) Open power switch.
 2) Disconnect 12V from the battery input.
 3) Mount BeagleBoard (remember the USB riser board).
