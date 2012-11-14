@@ -16,8 +16,8 @@ Result: The battery input should rise to 14V.</test>
   <test name="MSP430 program">1) Open power switch.
 2) Connect UIF.
 3) Close power switch.
-4) Program MSP.
-5) Run code.
+4) Program MSP (with the command `mspdebug -j uif "prog power-bottom"`, with power-bottom from pyenv.git).
+5) Run code (turn it on, it should beep).
 Result: Code runs.</test>
   <test name="test-mode enter">1) Open power switch.
 2) Hold down the two buttons to the lower right of the screen.
